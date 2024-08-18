@@ -1,6 +1,7 @@
 import { debug } from "console"
 import { use, useEffect, useState } from "react"
 import Balancer from "react-wrap-balancer"
+import { useSearchParams } from "next/navigation"
 
 import { Icons } from "@/lib/icons"
 import axios from "axios"
@@ -9,8 +10,10 @@ import { useDebounce } from "use-debounce"
 import { Input } from "@/ui"
 import { useSocialStore } from "@/stores"
 
-export const HomeInput = (props: { username: string | null }) => {
-	const [username, setUsername] = useState(props.username || "")
+export const HomeInput = () => {
+	const searchParams = useSearchParams()
+	const usernameQuery = searchParams.get("username")
+	const [username, setUsername] = useState(usernameQuery || "")
 	const [debouncedValue] = useDebounce(username, 500)
 
 	const setUsernameInStore = useSocialStore((state) => state.setInput)
