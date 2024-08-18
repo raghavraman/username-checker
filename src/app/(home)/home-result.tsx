@@ -13,7 +13,7 @@ const SocialMediaItem = ({
 }: {
 	imagePath: string
 	name: string
-	taken: boolean
+	taken: boolean | null
 	url: string
 }) => {
 	return (
@@ -30,7 +30,7 @@ const SocialMediaItem = ({
 					<p className={cn("text-center", taken && "text-slate-400")}>
 						{taken ? "Taken" : "Available"}
 					</p>
-					<a href={url}>
+					<a href={url} target="_blank">
 						<Icons.externalLink className="h-5 w-5" aria-label="GitHub" />
 					</a>
 				</div>
@@ -58,13 +58,13 @@ export const HomeResult = () => {
 							imagePath="/assets/img/youtube.svg"
 							name="Youtube"
 							taken={result.youtube}
-							url={`https://www.instagram.com/@${username}`}
+							url={`https://www.youtube.com/@${username}`}
 						/>
 						<SocialMediaItem
 							imagePath="/assets/img/tiktok.svg"
 							name="TikTok"
 							taken={result.tiktok}
-							url={`https://www.instagram.com/@${username}`}
+							url={`https://www.tiktok.com/@${username}`}
 						/>
 						<SocialMediaItem
 							imagePath="/assets/img/pinterest.svg"

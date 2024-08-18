@@ -1,6 +1,6 @@
 export const siteConfig = {
-	title: "Next.js Boilerplate | @omergulcicek",
-	url: "https://username.vercel.app",
+	title: "username checker",
+	url: "https://username-checker.pages.dev",
 	description:
 		"A working username checker tool to check the availability of a username on various platforms.",
 	links: {}

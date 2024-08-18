@@ -1,9 +1,9 @@
 type socialNameResult = {
-	youtube: boolean
-	reddit: boolean
-	snapchat: boolean
-	pintrest: boolean
-	twitch: boolean
-	tiktok: boolean
-	instagram: boolean
+	youtube: boolean | null
+	reddit: boolean | null
+	snapchat: boolean | null
+	pintrest: boolean | null
+	twitch: boolean | null
+	tiktok: boolean | null
+	instagram: boolean | null
 }

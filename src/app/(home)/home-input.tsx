@@ -1,5 +1,5 @@
 import { debug } from "console"
-import { useEffect, useState } from "react"
+import { use, useEffect, useState } from "react"
 import Balancer from "react-wrap-balancer"
 
 import axios from "axios"
@@ -16,9 +16,12 @@ export const HomeInput = () => {
 	const setResult = useSocialStore((state) => state.setResult)
 
 	useEffect(() => {
-		if (!debouncedValue) return
+		if (!debouncedValue) {
+			setResult(null)
 
-		console.log("debouncedValue", debouncedValue)
+			return
+		}
+
 		setUsernameInStore(debouncedValue)
 		fetchResult(debouncedValue)
 	}, [debouncedValue])
@@ -42,12 +45,13 @@ export const HomeInput = () => {
 			<Input
 				type="username"
 				placeholder="username"
-				className="border-0 border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none text-5xl font-bold leading-tight tracking-tighter md:text-5xl lg:leading-[1.1] "
+				className="border-0 border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none text-5xl font-bold leading-tight tracking-tighter md:text-5xl lg:leading-[1.1] lowercase"
 				prefix="@"
 				spellCheck="false"
 				value={username}
-				onChange={(e) => setUsername(e.target.value)}
+				onChange={(e) => setUsername(e.target.value.toLowerCase())}
 			/>
+
 			{!!username && (
 				<div className="flex flex-col gap-4 my-8">
 					<p className="text-start text-base font-light">
