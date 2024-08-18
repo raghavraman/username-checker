@@ -2,14 +2,15 @@ import { debug } from "console"
 import { use, useEffect, useState } from "react"
 import Balancer from "react-wrap-balancer"
 
+import { Icons } from "@/lib/icons"
 import axios from "axios"
 import { useDebounce } from "use-debounce"
 
 import { Input } from "@/ui"
 import { useSocialStore } from "@/stores"
 
-export const HomeInput = () => {
-	const [username, setUsername] = useState("")
+export const HomeInput = (props: { username: string | null }) => {
+	const [username, setUsername] = useState(props.username || "")
 	const [debouncedValue] = useDebounce(username, 500)
 
 	const setUsernameInStore = useSocialStore((state) => state.setInput)
@@ -36,6 +37,34 @@ export const HomeInput = () => {
 		}
 	}
 
+	const socialNameSuggestions = (username: string) => {
+		if (username.startsWith("madeby")) {
+			return [
+				username.replace("madeby", ""),
+				username.replace("madeby", "").concat("company"),
+				username.replace("madeby", "").concat("inc")
+			]
+		} else if (username.endsWith("company")) {
+			return [
+				username.replace("company", ""),
+				"madeby".concat(username.replace("company", "")),
+				username.replace("company", "").concat("inc")
+			]
+		} else if (username.endsWith("inc")) {
+			return [
+				username.replace("inc", ""),
+				"madeby".concat(username.replace("inc", "")),
+				username.replace("inc", "").concat("company")
+			]
+		} else {
+			return [
+				"madeby".concat(username),
+				username.concat("company"),
+				username.concat("inc")
+			]
+		}
+	}
+
 	return (
 		<section className="flex flex-col justify-center gap-2 px-4 py-4">
 			<p className="text-start text-base font-light text-slate-400">
@@ -58,17 +87,19 @@ export const HomeInput = () => {
 						<Balancer>also try,</Balancer>
 					</p>
 
-					<p className="text-start text-base font-light">
-						<Balancer>@madeby{username}</Balancer>
-					</p>
-
-					<p className="text-start text-base font-light">
-						<Balancer>@{username}company</Balancer>
-					</p>
-
-					<p className="text-start text-base font-light">
-						<Balancer>@{username}inc</Balancer>
-					</p>
+					{socialNameSuggestions(username)?.map((suggestion) => (
+						<div key={suggestion} className="flex flex-row gap-1">
+							<p className="text-start text-base font-light">
+								<Balancer>@{suggestion}</Balancer>
+							</p>
+							<a href={`/?username=${suggestion}`} target="_blank">
+								<Icons.externalLink
+									className="h-5 w-5"
+									aria-label="External-link"
+								/>
+							</a>
+						</div>
+					))}
 				</div>
 			)}
 		</section>
