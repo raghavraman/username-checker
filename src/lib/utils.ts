@@ -10,3 +10,31 @@ export function delay(ms = 1000) {
 		return new Promise((resolve) => setTimeout(() => resolve(x), ms))
 	}
 }
+
+export function randomUsername() {
+	const name = [
+		"apple",
+		"microsoft",
+		"google",
+		"amazon",
+		"meta",
+		"airbnb",
+		"uber",
+		"doordash",
+		"robinhood",
+		"stripe",
+		"gucci",
+		"louisvuitton",
+		"zara",
+		"hm",
+		"nike",
+		"awaytravel",
+		"rimowa",
+		"tumi",
+		"patagonia",
+		"northface"
+	]
+
+	const randomIndex = Math.floor(Math.random() * name.length)
+	return name[randomIndex]
+}

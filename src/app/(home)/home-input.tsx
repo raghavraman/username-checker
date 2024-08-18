@@ -4,6 +4,7 @@ import Balancer from "react-wrap-balancer"
 import { useSearchParams } from "next/navigation"
 
 import { Icons } from "@/lib/icons"
+import { randomUsername } from "@/lib/utils"
 import axios from "axios"
 import { useDebounce } from "use-debounce"
 
@@ -11,10 +12,12 @@ import { Input } from "@/ui"
 import { useSocialStore } from "@/stores"
 
 export const HomeInput = () => {
+	const randomName = randomUsername()
 	const searchParams = useSearchParams()
 	const usernameQuery = searchParams.get("username")
-	const [username, setUsername] = useState(usernameQuery || "")
+	const [username, setUsername] = useState(usernameQuery || randomName)
 	const [debouncedValue] = useDebounce(username, 500)
+	const [usernameSuggestions, setUsernameSuggestions] = useState<string[]>([])
 
 	const setUsernameInStore = useSocialStore((state) => state.setInput)
 	const setResult = useSocialStore((state) => state.setResult)
@@ -39,6 +42,13 @@ export const HomeInput = () => {
 			console.error("Error fetching data:", error)
 		}
 	}
+
+	useEffect(() => {
+		if (username) {
+			const suggestions = socialNameSuggestions(username)
+			setUsernameSuggestions(suggestions)
+		}
+	}, [username])
 
 	const socialNameSuggestions = (username: string) => {
 		if (username.startsWith("madeby")) {
@@ -90,7 +100,7 @@ export const HomeInput = () => {
 						<Balancer>also try,</Balancer>
 					</p>
 
-					{socialNameSuggestions(username)?.map((suggestion) => (
+					{usernameSuggestions?.map((suggestion) => (
 						<div key={suggestion} className="flex flex-row gap-1">
 							<p className="text-start text-base font-light">
 								<Balancer>@{suggestion}</Balancer>
