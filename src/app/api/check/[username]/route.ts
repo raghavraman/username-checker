@@ -159,7 +159,8 @@ async function checkInstagram(username: string): Promise<boolean | null> {
 	try {
 		const response = await getUserOnPlatform(
 			`https://www.instagram.com/${username}`,
-			"https://www.instagram.com/"
+			"https://www.instagram.com/",
+			"WhatsApp/2.2430.4 W"
 		)
 
 		if (
