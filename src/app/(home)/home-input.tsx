@@ -26,7 +26,6 @@ export const HomeInput = () => {
 	useEffect(() => {
 		if (!debouncedValue) {
 			setResult(null)
-
 			return
 		}
 
@@ -82,6 +81,15 @@ export const HomeInput = () => {
 		}
 	}
 
+	const handleFocus = (
+		event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+	) => {
+		const lengthOfInput = event.target.value.length
+		requestAnimationFrame(() => {
+			event.target.setSelectionRange(lengthOfInput, lengthOfInput)
+		})
+	}
+
 	return (
 		<section className="flex flex-col justify-center gap-2 px-4 py-4">
 			<p className="text-start text-base font-light text-slate-400">
@@ -91,11 +99,13 @@ export const HomeInput = () => {
 			<Input
 				type="username"
 				placeholder="username"
-				className="border-0 border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none text-5xl font-bold leading-tight tracking-tighter md:text-5xl lg:leading-[1.1] lowercase"
+				className="focus:outline-none text-5xl font-bold leading-tight tracking-tighter md:text-5xl lg:leading-[1.1] lowercase"
 				prefix="@"
 				spellCheck="false"
 				value={username}
 				onChange={(e) => setUsername(e.target.value.toLowerCase())}
+				onFocus={handleFocus}
+				autoFocus={true}
 			/>
 
 			{!!username && (
