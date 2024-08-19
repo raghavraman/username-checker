@@ -158,12 +158,12 @@ async function checkInstagram(username: string): Promise<boolean | null> {
 		console.log("LinkTree response", response.data)
 
 		if (
-			response.data.includes("Content not found") ||
-			response.data.includes(`"pageId":"HttpErrorPage"`)
+			response.data.includes("og:description") ||
+			response.data.includes("meta content")
 		)
-			return false
+			return true
 
-		return true
+		return false
 	} catch (error) {
 		console.log("Instagram error", error)
 		return null
