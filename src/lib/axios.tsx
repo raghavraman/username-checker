@@ -3,7 +3,8 @@ import UserAgent from "user-agents"
 
 export const getUserOnPlatform = async (
 	url: string,
-	domainUrl: string | null
+	domainUrl: string | null,
+	userAgentToUse: string | null = null
 ) => {
 	const userAgent = new UserAgent()
 
@@ -11,7 +12,7 @@ export const getUserOnPlatform = async (
 		const domainResponse = await axios.get(domainUrl, {
 			headers: {
 				accept: "*/*",
-				"User-Agent": userAgent.toString()
+				"User-Agent": userAgentToUse || userAgent.toString()
 			}
 		})
 	}
@@ -19,7 +20,7 @@ export const getUserOnPlatform = async (
 	return axios.get(url, {
 		headers: {
 			accept: "*/*",
-			"User-Agent": userAgent.toString()
+			"User-Agent": userAgentToUse || userAgent.toString()
 		}
 	})
 }

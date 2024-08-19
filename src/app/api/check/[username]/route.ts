@@ -19,7 +19,9 @@ export async function GET(
 		twitchRes,
 		tiktokRes,
 		instaRes,
-		linkTreeRes
+		linkTreeRes,
+		twitterRes,
+		facebookRes
 	] = await Promise.all([
 		checkYoutube(username),
 		checkReddit(username),
@@ -28,7 +30,9 @@ export async function GET(
 		checkTwitch(username),
 		checkTikTok(username),
 		checkInstagram(username),
-		checkLinkTree(username)
+		checkLinkTree(username),
+		checkTwitter(username),
+		checkFacebook(username)
 	])
 
 	// Prepare the response JSON
@@ -40,7 +44,9 @@ export async function GET(
 		twitch: twitchRes,
 		tiktok: tiktokRes,
 		instagram: instaRes,
-		linktree: linkTreeRes
+		linktree: linkTreeRes,
+		twitter: twitterRes,
+		facebook: facebookRes
 	}
 
 	return NextResponse.json(json)
@@ -185,6 +191,41 @@ async function checkLinkTree(username: string): Promise<boolean | null> {
 		return true
 	} catch (error) {
 		console.log("LinkTree error", error)
+		return null
+	}
+}
+
+async function checkTwitter(username: string): Promise<boolean | null> {
+	try {
+		const response = await getUserOnPlatform(
+			`https://www.twitter.com/${username}`,
+			null,
+			"WhatsApp/2.2430.4 W"
+		)
+
+		return response.status === 200
+	} catch (error) {
+		if (error instanceof AxiosError) {
+			if (error.response?.status === 404) return false
+		}
+		console.log("Twitter error", error)
+		return null
+	}
+}
+
+async function checkFacebook(username: string): Promise<boolean | null> {
+	try {
+		const response = await getUserOnPlatform(
+			`https://www.facebook.com/${username}`,
+			null,
+			"WhatsApp/2.2430.4 W"
+		)
+
+		if (response.data.includes("og:description")) return true
+
+		return false
+	} catch (error) {
+		console.log("Facebook error", error)
 		return null
 	}
 }

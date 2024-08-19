@@ -60,11 +60,25 @@ export const HomeResult = () => {
 							signupUrl="https://www.instagram.com/accounts/emailsignup/"
 						/>
 						<SocialMediaItem
+							imagePath="/assets/img/facebook.svg"
+							name="Facebook"
+							taken={result.facebook}
+							url={`https://www.facebook.com/${username}`}
+							signupUrl="https://www.facebook.com/signup"
+						/>
+						<SocialMediaItem
 							imagePath="/assets/img/youtube.svg"
 							name="Youtube"
 							taken={result.youtube}
 							url={`https://www.youtube.com/@${username}`}
 							signupUrl="https://www.youtube.com/signup"
+						/>
+						<SocialMediaItem
+							imagePath="/assets/img/twitter.svg"
+							name="Twitter"
+							taken={result.twitter}
+							url={`https://www.twitter.com/${username}`}
+							signupUrl="https://www.twitter.com/signup"
 						/>
 						<SocialMediaItem
 							imagePath="/assets/img/tiktok.svg"
