@@ -21,6 +21,7 @@ export const HomeInput = () => {
 
 	const setUsernameInStore = useSocialStore((state) => state.setInput)
 	const setResult = useSocialStore((state) => state.setResult)
+	const setLoading = useSocialStore((state) => state.setLoading)
 
 	useEffect(() => {
 		if (!debouncedValue) {
@@ -34,12 +35,15 @@ export const HomeInput = () => {
 	}, [debouncedValue])
 
 	const fetchResult = async (username: string) => {
+		setLoading(true)
 		try {
 			const response = await axios.get(`/api/check/${username}`)
 			console.log("response", response.data)
 			setResult(response.data as socialNameResult) // Adjust according to your API response
 		} catch (error) {
 			console.error("Error fetching data:", error)
+		} finally {
+			setLoading(false)
 		}
 	}
 

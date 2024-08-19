@@ -42,10 +42,11 @@ const SocialMediaItem = ({
 export const HomeResult = () => {
 	const result = useSocialStore((state) => state.result)
 	const username = useSocialStore((state) => state.input)
+	const loading = useSocialStore((state) => state.loading)
 
 	return (
 		<>
-			{result && (
+			{!loading && result && (
 				<section className="flex flex-col items-center gap-2 py-8">
 					<ul className="flex flex-col gap-4 list-none">
 						<SocialMediaItem
