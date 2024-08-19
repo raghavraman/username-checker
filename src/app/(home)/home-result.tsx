@@ -9,12 +9,14 @@ const SocialMediaItem = ({
 	imagePath,
 	name,
 	taken,
-	url
+	url,
+	signupUrl
 }: {
 	imagePath: string
 	name: string
 	taken: boolean | null
 	url: string
+	signupUrl?: string
 }) => {
 	return (
 		<li>
@@ -30,7 +32,7 @@ const SocialMediaItem = ({
 					<p className={cn("text-center", taken && "text-slate-400")}>
 						{taken ? "Taken" : "Available"}
 					</p>
-					<a href={url} target="_blank">
+					<a href={taken ? url : signupUrl} target="_blank">
 						<Icons.externalLink className="h-5 w-5" aria-label="GitHub" />
 					</a>
 				</div>
@@ -54,42 +56,55 @@ export const HomeResult = () => {
 							name="Instagram"
 							taken={result.instagram}
 							url={`https://www.instagram.com/${username}`}
+							signupUrl="https://www.instagram.com/accounts/emailsignup/"
 						/>
 						<SocialMediaItem
 							imagePath="/assets/img/youtube.svg"
 							name="Youtube"
 							taken={result.youtube}
 							url={`https://www.youtube.com/@${username}`}
+							signupUrl="https://www.youtube.com/signup"
 						/>
 						<SocialMediaItem
 							imagePath="/assets/img/tiktok.svg"
 							name="TikTok"
 							taken={result.tiktok}
 							url={`https://www.tiktok.com/@${username}`}
+							signupUrl="https://www.tiktok.com/signup"
 						/>
 						<SocialMediaItem
 							imagePath="/assets/img/pinterest.svg"
 							name="Pinterest"
 							taken={result.pintrest}
 							url={`https://www.pinterest.com/${username}`}
+							signupUrl="https://www.pinterest.com/"
 						/>
 						<SocialMediaItem
 							imagePath="/assets/img/snapchat.svg"
 							name="Snapchat"
 							taken={result.snapchat}
 							url={`https://www.snapchat.com/add/${username}`}
+							signupUrl="https://accounts.snapchat.com/accounts/v2/signup"
 						/>
-						<SocialMediaItem
+						{/* <SocialMediaItem
 							imagePath="/assets/img/reddit.svg"
 							name="Reddit"
 							taken={result.reddit}
 							url={`https://reddit.com/user/${username}`}
-						/>
+						/> */}
 						<SocialMediaItem
 							imagePath="/assets/img/twitch.svg"
 							name="Twitch"
 							taken={result.twitch}
 							url={`https://www.twitch.tv/${username}`}
+							signupUrl="https://www.twitch.tv/signup"
+						/>
+						<SocialMediaItem
+							imagePath="/assets/img/linktree.svg"
+							name="Linktree"
+							taken={result.linktree}
+							url={`https://www.linktr.ee/${username}`}
+							signupUrl="https://auth.linktr.ee/login"
 						/>
 					</ul>
 				</section>

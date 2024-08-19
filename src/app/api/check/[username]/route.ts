@@ -1,4 +1,5 @@
 // api > hello > route.ts
+import { link } from "fs"
 import { NextRequest, NextResponse } from "next/server"
 
 import { getUserOnPlatform } from "@/lib/axios"
@@ -17,7 +18,8 @@ export async function GET(
 		pintrestRes,
 		twitchRes,
 		tiktokRes,
-		instaRes
+		instaRes,
+		linkTreeRes
 	] = await Promise.all([
 		checkYoutube(username),
 		checkReddit(username),
@@ -25,7 +27,8 @@ export async function GET(
 		checkPintrest(username),
 		checkTwitch(username),
 		checkTikTok(username),
-		checkInstagram(username)
+		checkInstagram(username),
+		checkLinkTree(username)
 	])
 
 	// Prepare the response JSON
@@ -36,7 +39,8 @@ export async function GET(
 		pintrest: pintrestRes,
 		twitch: twitchRes,
 		tiktok: tiktokRes,
-		instagram: instaRes
+		instagram: instaRes,
+		linktree: linkTreeRes
 	}
 
 	return NextResponse.json(json)
@@ -76,6 +80,8 @@ async function checkSnapchat(username: string): Promise<boolean | null> {
 }
 
 async function checkReddit(username: string): Promise<boolean | null> {
+	return null
+
 	try {
 		const response = await getUserOnPlatform(
 			`https://oauth.reddit.com/user/${username}`,
@@ -149,8 +155,13 @@ async function checkInstagram(username: string): Promise<boolean | null> {
 			`https://www.instagram.com/${username}`,
 			"https://www.instagram.com/"
 		)
+		console.log("LinkTree response", response.data)
 
-		if (response.data.includes(`"pageId":"HttpErrorPage"`)) return false
+		if (
+			response.data.includes("Content not found") ||
+			response.data.includes(`"pageId":"HttpErrorPage"`)
+		)
+			return false
 
 		return true
 	} catch (error) {
@@ -159,7 +170,22 @@ async function checkInstagram(username: string): Promise<boolean | null> {
 	}
 }
 
-/**
- * TODO: Customize Axios instance
- * TODO: Generate random user-agent
- */
+async function checkLinkTree(username: string): Promise<boolean | null> {
+	try {
+		const response = await getUserOnPlatform(
+			`https://www.linktr.ee/${username}`,
+			null
+		)
+
+		if (
+			response.data.includes(`"statusCode":404`) ||
+			response.data.includes(404)
+		)
+			return false
+
+		return true
+	} catch (error) {
+		console.log("LinkTree error", error)
+		return null
+	}
+}

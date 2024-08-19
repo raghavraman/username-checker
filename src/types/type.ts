@@ -6,4 +6,5 @@ type socialNameResult = {
 	twitch: boolean | null
 	tiktok: boolean | null
 	instagram: boolean | null
+	linktree: boolean | null
 }
