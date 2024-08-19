@@ -78,15 +78,11 @@ async function checkSnapchat(username: string): Promise<boolean | null> {
 async function checkReddit(username: string): Promise<boolean | null> {
 	try {
 		const response = await getUserOnPlatform(
-			`https://www.reddit.com/user/${username}`,
-			"https://www.reddit.com/"
+			`https://oauth.reddit.com/user/${username}`,
+			null
 		)
 
-		if (
-			response.data.includes("nobody on Reddit goes by that name") ||
-			response.data.includes("username is incorrect")
-		)
-			return false
+		if (response.data.includes("reddit.com: page not found")) return false
 
 		return true
 	} catch (error) {
