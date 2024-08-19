@@ -1,12 +1,11 @@
+import Image from "next/image"
 import Link from "next/link"
-
-import { Icons } from "@/icons"
 
 const Brand = () => {
 	return (
 		<>
 			<Link href="/">
-				<Icons.flower aria-label="Flower icon" />
+				<Image src="/assets/img/logo.svg" alt={"logo"} width={32} height={32} />
 			</Link>
 		</>
 	)

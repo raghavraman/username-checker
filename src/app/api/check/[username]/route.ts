@@ -155,7 +155,6 @@ async function checkInstagram(username: string): Promise<boolean | null> {
 			`https://www.instagram.com/${username}`,
 			"https://www.instagram.com/"
 		)
-		console.log("LinkTree response", response.data)
 
 		if (
 			response.data.includes("og:description") ||

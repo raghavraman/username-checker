@@ -1,6 +1,6 @@
 export const navConfig = [
 	{
-		title: "Username Checker",
+		title: "Got Dibs",
 		href: "/"
 	}
 ]

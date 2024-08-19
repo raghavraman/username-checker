@@ -19,7 +19,7 @@ export const Nav = () => {
 					key={href}
 					href={href}
 					className={clsx(
-						"transition-colors hover:text-foreground/80",
+						"transition-colors hover:text-foreground/80 text-2xl leading-8",
 						pathname === href ? "text-foreground" : "text-foreground/60"
 					)}
 				>
