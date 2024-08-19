@@ -24,7 +24,7 @@ const SocialMediaItem = ({
 					<p className="text-center">{name}</p>
 				</div>
 				<div className="flex items-center justify-center w-full">
-					<hr className="w-60 h-px bg-gray-200 border-0 dark:bg-gray-700" />
+					<hr className="w-20 md:w-60 h-px bg-gray-200 border-0 dark:bg-gray-700" />
 				</div>
 				<div className="flex flex-row gap-2">
 					<p className={cn("text-center", taken && "text-slate-400")}>

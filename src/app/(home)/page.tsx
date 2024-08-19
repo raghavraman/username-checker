@@ -7,7 +7,7 @@ import { HomeResult } from "./home-result"
 
 export default function Home() {
 	return (
-		<main className="flex flex-col md:items-center md:flex-row md:justify-center min-h-screen gap-10">
+		<main className="flex flex-col md:items-center md:flex-row md:justify-center min-h-screen md:gap-10">
 			<Suspense>
 				<HomeInput />
 			</Suspense>
