@@ -1,0 +1,47 @@
+[
+	{
+		"imagePath": "/assets/img/instagram.svg",
+		"name": "Instagram",
+		"signupUrl": "https://www.instagram.com/accounts/emailsignup/"
+	},
+	{
+		"imagePath": "/assets/img/facebook.svg",
+		"name": "Facebook",
+		"signupUrl": "https://www.facebook.com/signup"
+	},
+	{
+		"imagePath": "/assets/img/youtube.svg",
+		"name": "Youtube",
+		"signupUrl": "https://www.youtube.com/signup"
+	},
+	{
+		"imagePath": "/assets/img/twitter.svg",
+		"name": "Twitter",
+		"signupUrl": "https://www.twitter.com/signup"
+	},
+	{
+		"imagePath": "/assets/img/tiktok.svg",
+		"name": "TikTok",
+		"signupUrl": "https://www.tiktok.com/signup"
+	},
+	{
+		"imagePath": "/assets/img/pinterest.svg",
+		"name": "Pinterest",
+		"signupUrl": "https://www.pinterest.com/"
+	},
+	{
+		"imagePath": "/assets/img/snapchat.svg",
+		"name": "Snapchat",
+		"signupUrl": "https://accounts.snapchat.com/accounts/v2/signup"
+	},
+	{
+		"imagePath": "/assets/img/twitch.svg",
+		"name": "Twitch",
+		"signupUrl": "https://www.twitch.tv/signup"
+	},
+	{
+		"imagePath": "/assets/img/linktree.svg",
+		"name": "Linktree",
+		"signupUrl": "https://auth.linktr.ee/login"
+	}
+]

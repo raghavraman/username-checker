@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils"
 
 import { useSocialStore } from "@/stores"
 
+import socialMediaConfig from "./socialConfig.json"
+
 const SocialMediaItem = ({
 	imagePath,
 	name,
@@ -56,89 +58,29 @@ export const HomeResult = () => {
 		<>
 			<section className="flex flex-col items-center justify-center gap-2 md:px-16 md:w-1/2">
 				<div className="flex flex-col gap-4 list-none w-full md:px-8">
-					<SocialMediaItem
-						imagePath="/assets/img/instagram.svg"
-						name="Instagram"
-						taken={
-							loading ? "Loading" : result?.instagram ? "Taken" : "Available"
-						}
-						url={`https://www.instagram.com/${username}`}
-						signupUrl="https://www.instagram.com/accounts/emailsignup/"
-					/>
-					<SocialMediaItem
-						imagePath="/assets/img/facebook.svg"
-						name="Facebook"
-						taken={
-							loading ? "Loading" : result?.facebook ? "Taken" : "Available"
-						}
-						url={`https://www.facebook.com/${username}`}
-						signupUrl="https://www.facebook.com/signup"
-					/>
-					<SocialMediaItem
-						imagePath="/assets/img/youtube.svg"
-						name="Youtube"
-						taken={
-							loading ? "Loading" : result?.youtube ? "Taken" : "Available"
-						}
-						url={`https://www.youtube.com/@${username}`}
-						signupUrl="https://www.youtube.com/signup"
-					/>
-					<SocialMediaItem
-						imagePath="/assets/img/twitter.svg"
-						name="Twitter"
-						taken={
-							loading ? "Loading" : result?.twitter ? "Taken" : "Available"
-						}
-						url={`https://www.twitter.com/${username}`}
-						signupUrl="https://www.twitter.com/signup"
-					/>
-					<SocialMediaItem
-						imagePath="/assets/img/tiktok.svg"
-						name="TikTok"
-						taken={loading ? "Loading" : result?.tiktok ? "Taken" : "Available"}
-						url={`https://www.tiktok.com/@${username}`}
-						signupUrl="https://www.tiktok.com/signup"
-					/>
-					<SocialMediaItem
-						imagePath="/assets/img/pinterest.svg"
-						name="Pinterest"
-						taken={
-							loading ? "Loading" : result?.pintrest ? "Taken" : "Available"
-						}
-						url={`https://www.pinterest.com/${username}`}
-						signupUrl="https://www.pinterest.com/"
-					/>
-					<SocialMediaItem
-						imagePath="/assets/img/snapchat.svg"
-						name="Snapchat"
-						taken={
-							loading ? "Loading" : result?.snapchat ? "Taken" : "Available"
-						}
-						url={`https://www.snapchat.com/add/${username}`}
-						signupUrl="https://accounts.snapchat.com/accounts/v2/signup"
-					/>
 					{/* <SocialMediaItem
-							imagePath="/assets/img/reddit.svg"
-							name="Reddit"
-							taken={result.reddit}
-							url={`https://reddit.com/user/${username}`}
-						/> */}
-					<SocialMediaItem
-						imagePath="/assets/img/twitch.svg"
-						name="Twitch"
-						taken={loading ? "Loading" : result?.twitch ? "Taken" : "Available"}
-						url={`https://www.twitch.tv/${username}`}
-						signupUrl="https://www.twitch.tv/signup"
-					/>
-					<SocialMediaItem
-						imagePath="/assets/img/linktree.svg"
-						name="Linktree"
-						taken={
-							loading ? "Loading" : result?.linktree ? "Taken" : "Available"
-						}
-						url={`https://www.linktr.ee/${username}`}
-						signupUrl="https://auth.linktr.ee/login"
-					/>
+								imagePath="/assets/img/reddit.svg"
+								name="Reddit"
+								taken={result.reddit}
+								url={`https://reddit.com/user/${username}`}
+							/> */}
+
+					{socialMediaConfig.map((item, index) => (
+						<SocialMediaItem
+							key={index}
+							imagePath={item.imagePath}
+							name={item.name}
+							taken={
+								loading
+									? "Loading"
+									: result?.[item.name.toLowerCase() as keyof typeof result]
+										? "Taken"
+										: "Available"
+							}
+							url={`https://www.${item.name.toLowerCase()}.com/${username}`}
+							signupUrl={item.signupUrl}
+						/>
+					))}
 				</div>
 			</section>
 		</>

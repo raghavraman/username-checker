@@ -15,7 +15,7 @@ export async function GET(
 		youtubeRes,
 		redditRes,
 		snapchatRes,
-		pintrestRes,
+		pinterestRes,
 		twitchRes,
 		tiktokRes,
 		instaRes,
@@ -26,7 +26,7 @@ export async function GET(
 		checkYoutube(username),
 		checkReddit(username),
 		checkSnapchat(username),
-		checkPintrest(username),
+		checkPinterest(username),
 		checkTwitch(username),
 		checkTikTok(username),
 		checkInstagram(username),
@@ -40,7 +40,7 @@ export async function GET(
 		youtube: youtubeRes,
 		reddit: redditRes,
 		snapchat: snapchatRes,
-		pintrest: pintrestRes,
+		pinterest: pinterestRes,
 		twitch: twitchRes,
 		tiktok: tiktokRes,
 		instagram: instaRes,
@@ -103,7 +103,7 @@ async function checkReddit(username: string): Promise<boolean | null> {
 	}
 }
 
-async function checkPintrest(username: string): Promise<boolean | null> {
+async function checkPinterest(username: string): Promise<boolean | null> {
 	try {
 		const response = await getUserOnPlatform(
 			`https://www.pinterest.com/${username}`,
