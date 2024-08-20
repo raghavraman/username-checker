@@ -25,7 +25,7 @@ const SocialMediaItem = ({
 				<p className="text-center text-slate-900 dark:text-slate-100">{name}</p>
 			</div>
 			<div className="flex items-center md:w-4/6 w-1/3">
-				<hr className="w-full h-px border-t-0 border-dotted border-t-slate-400" />
+				<div className="w-full h-1 border-t border-dotted border-slate-400"></div>
 			</div>
 			<div className="flex flex-row gap-2 items-center md:w-1/6 w-1/3">
 				<p
