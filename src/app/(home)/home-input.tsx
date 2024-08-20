@@ -87,7 +87,7 @@ export const HomeInput = () => {
 	}
 
 	return (
-		<section className="flex flex-col md:items-end justify-center gap-2 px-4 py-4 md:w-1/2">
+		<section className="flex flex-col md:items-end justify-center gap-2 md:w-1/2">
 			<div className="flex flex-col">
 				<p className="text-start text-base font-light text-slate-400">
 					<Balancer>username availability for</Balancer>
@@ -96,7 +96,7 @@ export const HomeInput = () => {
 				<Input
 					type="username"
 					placeholder="username"
-					className="focus:outline-none text-5xl text-start items-start font-bold leading-tight tracking-tighter lg:leading-[1.1] lowercase text-slate-900 dark:text-slate-100"
+					className="w-96 text-ellipsis text-nowrap overflow-hidden focus:outline-none text-5xl text-start items-start font-bold leading-tight tracking-tighter lg:leading-[1.1] lowercase text-slate-900 dark:text-slate-100"
 					spellCheck="false"
 					value={username}
 					onChange={(e) => setUsername(e.target.value.toLowerCase())}
@@ -106,14 +106,14 @@ export const HomeInput = () => {
 
 				{!!username && (
 					<div className="flex flex-col gap-4 my-8">
-						<p className="text-start text-base font-light">
+						<p className="text-start text-base font-light text-slate-400">
 							<Balancer>also try,</Balancer>
 						</p>
 
 						{usernameSuggestions?.map((suggestion) => (
 							<div key={suggestion} className="flex flex-row gap-1">
 								<p
-									className="text-start text-base font-light cursor-pointer hover:font-bold"
+									className="text-start text-base font-normal cursor-pointer hover:font-bold"
 									onClick={(e) => setUsername(suggestion)}
 								>
 									<Balancer>@{suggestion}</Balancer>
