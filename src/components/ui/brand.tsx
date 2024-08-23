@@ -5,7 +5,7 @@ const Brand = () => {
 	return (
 		<>
 			<Link href="/">
-				<Image src="/assets/img/logo.svg" alt={"logo"} width={32} height={32} />
+				<Image src="/assets/img/logo.svg" alt={"logo"} width={64} height={64} />
 			</Link>
 		</>
 	)

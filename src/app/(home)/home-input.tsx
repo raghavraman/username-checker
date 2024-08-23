@@ -89,7 +89,7 @@ export const HomeInput = () => {
 	return (
 		<section className="flex flex-col md:items-end justify-center gap-2 md:w-1/2">
 			<div className="flex flex-col">
-				<p className="text-start text-base font-light text-slate-400">
+				<p className="text-start text-base font-normal text-slate-400">
 					<Balancer>username availability for</Balancer>
 				</p>
 
