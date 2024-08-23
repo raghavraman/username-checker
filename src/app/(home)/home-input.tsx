@@ -42,40 +42,40 @@ export const HomeInput = () => {
 		}
 	}
 
-	useEffect(() => {
-		if (username) {
-			const suggestions = socialNameSuggestions(username)
-			setUsernameSuggestions(suggestions)
-		}
-	}, [username])
+	// useEffect(() => {
+	// 	if (username) {
+	// 		const suggestions = socialNameSuggestions(username)
+	// 		setUsernameSuggestions(suggestions)
+	// 	}
+	// }, [username])
 
-	const socialNameSuggestions = (username: string) => {
-		if (username.startsWith("madeby")) {
-			return [
-				username.replace("madeby", ""),
-				username.replace("madeby", "").concat("company"),
-				username.replace("madeby", "").concat("inc")
-			]
-		} else if (username.endsWith("company")) {
-			return [
-				username.replace("company", ""),
-				"madeby".concat(username.replace("company", "")),
-				username.replace("company", "").concat("inc")
-			]
-		} else if (username.endsWith("inc")) {
-			return [
-				username.replace("inc", ""),
-				"madeby".concat(username.replace("inc", "")),
-				username.replace("inc", "").concat("company")
-			]
-		} else {
-			return [
-				"madeby".concat(username),
-				username.concat("company"),
-				username.concat("inc")
-			]
-		}
-	}
+	// const socialNameSuggestions = (username: string) => {
+	// 	if (username.startsWith("madeby")) {
+	// 		return [
+	// 			username.replace("madeby", ""),
+	// 			username.replace("madeby", "").concat("company"),
+	// 			username.replace("madeby", "").concat("inc")
+	// 		]
+	// 	} else if (username.endsWith("company")) {
+	// 		return [
+	// 			username.replace("company", ""),
+	// 			"madeby".concat(username.replace("company", "")),
+	// 			username.replace("company", "").concat("inc")
+	// 		]
+	// 	} else if (username.endsWith("inc")) {
+	// 		return [
+	// 			username.replace("inc", ""),
+	// 			"madeby".concat(username.replace("inc", "")),
+	// 			username.replace("inc", "").concat("company")
+	// 		]
+	// 	} else {
+	// 		return [
+	// 			"madeby".concat(username),
+	// 			username.concat("company"),
+	// 			username.concat("inc")
+	// 		]
+	// 	}
+	// }
 
 	const handleFocus = (
 		event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -106,9 +106,9 @@ export const HomeInput = () => {
 
 				{!!username && (
 					<div className="flex flex-col gap-4 my-8">
-						<p className="text-start text-base font-light text-slate-400">
+						{/* <p className="text-start text-base font-light text-slate-400">
 							<Balancer>also try,</Balancer>
-						</p>
+						</p> */}
 
 						{usernameSuggestions?.map((suggestion) => (
 							<div key={suggestion} className="flex flex-row gap-1">
