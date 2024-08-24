@@ -14,25 +14,25 @@ export function delay(ms = 1000) {
 export function randomUsername() {
 	const name = [
 		"apple",
-		"microsoft",
 		"google",
-		"amazon",
-		"meta",
 		"airbnb",
-		"uber",
 		"doordash",
-		"robinhood",
-		"stripe",
-		"gucci",
-		"louisvuitton",
-		"zara",
-		"hm",
-		"nike",
-		"awaytravel",
-		"rimowa",
-		"tumi",
-		"patagonia",
-		"northface"
+		"louisvuitton"
+		// "microsoft",
+		// "amazon",
+		// "uber",
+		// "meta",
+		// "robinhood",
+		// "stripe",
+		// "gucci",
+		// "zara",
+		// "hm",
+		// "nike",
+		// "awaytravel",
+		// "rimowa",
+		// "tumi",
+		// "patagonia",
+		// "northface"
 	]
 
 	const randomIndex = Math.floor(Math.random() * name.length)

@@ -21,15 +21,13 @@ const SocialMediaItem = ({
 	signupUrl?: string
 }) => {
 	return (
-		<div className="flex flex-row md:gap-8 gap-4 items-center justify-center h-12">
-			<div className="flex flex-row gap-2 items-center md:w-1/6 w-1/3">
+		<div className="flex flex-row items-center justify-start h-12 gap-4">
+			<div className="flex flex-row gap-2 items-center min-w-28">
 				<Image src={imagePath} alt={name} width={28} height={28} />
 				<p className="text-center text-slate-900 dark:text-slate-100">{name}</p>
 			</div>
-			<div className="flex items-center md:w-4/6 w-1/3">
-				<div className="w-full h-1 border-t border-dotted border-slate-400"></div>
-			</div>
-			<div className="flex flex-row gap-2 items-center md:w-1/6 w-1/3">
+			<div className="h-1 flex-1 max-w-60 px-8 border-t border-dotted border-slate-400"></div>
+			<div className="flex flex-row gap-2 items-center pl-2">
 				<p
 					className={cn(
 						"text-center",
@@ -56,7 +54,7 @@ export const HomeResult = () => {
 
 	return (
 		<>
-			<section className="flex flex-col items-center justify-center gap-2 md:px-16 md:w-1/2">
+			<section className="flex flex-col items-center md:items-start justify-center gap-2 md:w-1/2">
 				<div className="flex flex-col gap-4 list-none w-full md:px-8">
 					{/* <SocialMediaItem
 								imagePath="/assets/img/reddit.svg"
@@ -77,7 +75,7 @@ export const HomeResult = () => {
 										? "Taken"
 										: "Available"
 							}
-							url={`https://www.${item.name.toLowerCase()}.com/${username}`}
+							url={item.url + username.toLowerCase()}
 							signupUrl={item.signupUrl}
 						/>
 					))}

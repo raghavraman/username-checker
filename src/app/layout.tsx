@@ -11,6 +11,7 @@ import "./globals.css"
 
 import { Footer } from "@/components/shared/footer"
 import { cn } from "@/lib/utils"
+import { Analytics } from "@vercel/analytics/react"
 
 const fontSans = FontSans({
 	subsets: ["latin"],
@@ -38,6 +39,7 @@ export default function RootLayout({
 				<Providers>
 					<Header />
 					{children}
+					<Analytics />
 					<SpeedInsights />
 					<Footer />
 				</Providers>

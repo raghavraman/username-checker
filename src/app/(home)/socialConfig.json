@@ -2,46 +2,55 @@
 	{
 		"imagePath": "/assets/img/instagram.svg",
 		"name": "Instagram",
-		"signupUrl": "https://www.instagram.com/accounts/emailsignup/"
+		"signupUrl": "https://www.instagram.com/accounts/emailsignup/",
+		"url": "https://www.instagram.com/"
 	},
 	{
 		"imagePath": "/assets/img/facebook.svg",
 		"name": "Facebook",
-		"signupUrl": "https://www.facebook.com/signup"
+		"signupUrl": "https://www.facebook.com/signup",
+		"url": "https://www.facebook.com/"
 	},
 	{
 		"imagePath": "/assets/img/youtube.svg",
 		"name": "Youtube",
-		"signupUrl": "https://www.youtube.com/signup"
+		"signupUrl": "https://www.youtube.com/signup",
+		"url": "https://www.youtube.com/@"
 	},
 	{
 		"imagePath": "/assets/img/twitter.svg",
 		"name": "Twitter",
-		"signupUrl": "https://www.twitter.com/signup"
+		"signupUrl": "https://www.twitter.com/signup",
+		"url": "https://www.twitter.com/"
 	},
 	{
 		"imagePath": "/assets/img/tiktok.svg",
 		"name": "TikTok",
-		"signupUrl": "https://www.tiktok.com/signup"
+		"signupUrl": "https://www.tiktok.com/signup",
+		"url": "https://www.tiktok.com/@"
 	},
 	{
 		"imagePath": "/assets/img/pinterest.svg",
 		"name": "Pinterest",
-		"signupUrl": "https://www.pinterest.com/"
+		"signupUrl": "https://www.pinterest.com/",
+		"url": "https://www.pinterest.com/"
 	},
 	{
 		"imagePath": "/assets/img/snapchat.svg",
 		"name": "Snapchat",
-		"signupUrl": "https://accounts.snapchat.com/accounts/v2/signup"
+		"signupUrl": "https://accounts.snapchat.com/accounts/v2/signup",
+		"url": "https://www.snapchat.com/add/"
 	},
 	{
 		"imagePath": "/assets/img/twitch.svg",
 		"name": "Twitch",
-		"signupUrl": "https://www.twitch.tv/signup"
+		"signupUrl": "https://www.twitch.tv/signup",
+		"url": "https://www.twitch.tv/"
 	},
 	{
 		"imagePath": "/assets/img/linktree.svg",
 		"name": "Linktree",
-		"signupUrl": "https://auth.linktr.ee/login"
+		"signupUrl": "https://auth.linktr.ee/login",
+		"url": "https://linktr.ee/"
 	}
 ]
