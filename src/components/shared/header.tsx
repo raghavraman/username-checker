@@ -11,7 +11,7 @@ export const Header = () => {
 					<Nav />
 				</div>
 
-				<div className="flex items-center justify-end border-2 rounded-lg border-slate-600 dark:border-slate-400">
+				<div className="flex items-center justify-end">
 					{/* <Social /> */}
 					<Theme />
 				</div>
