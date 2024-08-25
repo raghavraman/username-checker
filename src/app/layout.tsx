@@ -25,16 +25,16 @@ export const metadata: Metadata = {
 		title: siteConfig.title,
 		description: siteConfig.description,
 		images: [
-		  {
-			url: "/assets/img/og-image.jpg",
-			width: 1200,
-			height: 630,
-			alt: "Check username availability across social media platforms instantly.",
-		  },
+			{
+				url: "/assets/img/og-image.jpg",
+				width: 1200,
+				height: 630,
+				alt: "Check username availability across social media platforms instantly."
+			}
 		],
 		url: siteConfig.url,
-		type: "website",
-	  }
+		type: "website"
+	}
 }
 
 export default function RootLayout({

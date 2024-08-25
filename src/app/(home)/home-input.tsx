@@ -35,7 +35,7 @@ export const HomeInput = () => {
 		setLoading(true)
 		try {
 			const response = await axios.get(`/api/check/${username}`)
-			console.log("response", response.data)
+			// console.log("response", response.data)
 			setResult(response.data as socialNameResult) // Adjust according to your API response
 		} catch (error) {
 			console.error("Error fetching data:", error)
