@@ -34,7 +34,8 @@ export const metadata: Metadata = {
 		],
 		url: siteConfig.url,
 		type: "website"
-	}
+	},
+	viewport: "width=device-width, initial-scale=1, maximum-scale=1"
 }
 
 export default function RootLayout({
