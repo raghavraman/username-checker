@@ -3,7 +3,7 @@ type socialNameResult = {
 	reddit: boolean | null
 	snapchat: boolean | null
 	pinterest: boolean | null
-	twitch: boolean | null
+	// twitch: boolean | null
 	tiktok: boolean | null
 	instagram: boolean | null
 	linktree: boolean | null

@@ -16,7 +16,7 @@ export async function GET(
 		redditRes,
 		snapchatRes,
 		pinterestRes,
-		twitchRes,
+		// twitchRes,
 		tiktokRes,
 		instaRes,
 		linkTreeRes,
@@ -27,7 +27,7 @@ export async function GET(
 		checkReddit(username),
 		checkSnapchat(username),
 		checkPinterest(username),
-		checkTwitch(username),
+		// checkTwitch(username),
 		checkTikTok(username),
 		checkInstagram(username),
 		checkLinkTree(username),
@@ -41,7 +41,7 @@ export async function GET(
 		reddit: redditRes,
 		snapchat: snapchatRes,
 		pinterest: pinterestRes,
-		twitch: twitchRes,
+		// twitch: twitchRes,
 		tiktok: tiktokRes,
 		instagram: instaRes,
 		linktree: linkTreeRes,
@@ -119,25 +119,25 @@ async function checkPinterest(username: string): Promise<boolean | null> {
 	}
 }
 
-async function checkTwitch(username: string): Promise<boolean | null> {
-	try {
-		const response = await getUserOnPlatform(
-			`https://www.twitch.tv/${username}`,
-			"https://www.twitch.tv/"
-		)
+// async function checkTwitch(username: string): Promise<boolean | null> {
+// 	try {
+// 		const response = await getUserOnPlatform(
+// 			`https://www.twitch.tv/${username}`,
+// 			"https://www.twitch.tv/"
+// 		)
 
-		if (
-			response.data.includes(`${username} streams live on Twitch`) ||
-			response.data.includes(username)
-		)
-			return true
+// 		if (
+// 			response.data.includes(`${username} streams live on Twitch`) ||
+// 			response.data.includes(username)
+// 		)
+// 			return true
 
-		return false
-	} catch (error) {
-		console.log("Twitch error", error)
-		return null
-	}
-}
+// 		return false
+// 	} catch (error) {
+// 		console.log("Twitch error", error)
+// 		return null
+// 	}
+// }
 
 async function checkTikTok(username: string): Promise<boolean | null> {
 	try {

@@ -42,12 +42,6 @@
 		"url": "https://www.snapchat.com/add/"
 	},
 	{
-		"imagePath": "/assets/img/twitch.svg",
-		"name": "Twitch",
-		"signupUrl": "https://www.twitch.tv/signup",
-		"url": "https://www.twitch.tv/"
-	},
-	{
 		"imagePath": "/assets/img/linktree.svg",
 		"name": "Linktree",
 		"signupUrl": "https://auth.linktr.ee/login",
